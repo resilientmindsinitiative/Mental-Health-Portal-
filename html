@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Portal of the College of Nursing</title>
+    <meta name="description" content="Resilience to empower your self-awareness and well-being.">
+    <meta name="keywords" content="Mental Health, Resilience, Assessment, Reports, Self-awareness, Well-being">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9fb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            position: relative;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff7043;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .slogan {
+            font-size: 1.0rem;
+            color: white;
+            margin-top: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ff7043;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        main {
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #ff7043;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff7043;
+            padding-bottom: 10px;
+        }
+
+        .content-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .column p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        .statistics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .statistic {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffd54f;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .statistic h3 {
+            font-size: 2rem;
+            color: #d84315;
+            margin-bottom: 10px;
+        }
+
+        .form-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #fff8e1;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #ff7043;
+            box-shadow: 0 0 5px rgba(255, 112, 67, 0.5);
+            outline: none;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #ff7043;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #d84315;
+        }
+
+        .fee-note {
+            display: block;
+            font-size: 0.8rem;
+            color: #777;
+            text-align: center;
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
+        #message,
+        #formMessage,
+        #success-message {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        #success-message {
+            display: none;
+            color: green;
+        }
+
+        #loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ff7043;
+        }
+
+        footer {
+            background-color: #ff7043;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+            position: relative;
+        }
+
+        /* Privacy Policy Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 300px;
+            background-color: #ffd54f;
+            color: #333;
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff7043;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #backToTopBtn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .content-grid {
+                flex-direction: column;
+            }
+
+            .statistics {
+                flex-direction: column;
+            }
+
+            .form-grid {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .section h2 {
+                font-size: 1.4rem;
+            }
+
+            .form-group input[type="submit"] {
+                font-size: 1rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Quiz Result Styles */
+        #result {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffecb3;
+            border-radius: 8px;
+        }
+
+        #submitQuiz {
+            background-color: #ff7043;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #submitQuiz:hover {
+            background-color: #d84315;
+        }
+
+        .score-description {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mental Health Support Portal of the College of Nursing</h1>
+        <div class="slogan">Strength in Every Struggle, Power in Every Comeback.</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#welcome">Welcome</a></li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li><a href="#assessment">Assessment</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Welcome and Mission Section -->
+        <div class="section content-grid" id="welcome">
+            <div class="column">
+                <h2>Welcome</h2>
+                <p>Welcome to the Mental Health Support Portal of the College of Nursing, your reliable resource for understanding and navigating your mental health journey. Personalized insights and assessments are available to support your self-awareness and overall well-being. Assessments can be conducted either through paper-based forms or virtual meetings. Guidance is offered throughout the process as you explore your personal strengths and areas for growth..</p>
+            </div>
+            <div class="column">
+                <h2>The Mission</h2>
+                <p>The mission is to empower individuals facing mental health challenges by helping them better understand themselves. Self-awareness is the first step towards healing and growth. By offering detailed and personalized assessments, we aim to provide the tools and insights necessary for individuals to navigate their mental health journey with confidence and clarity.</p>
+            </div>
+        </div>
+
+        <!-- World Mental Health Statistics Section -->
+        <div class="section" id="statistics">
+            <h2>World Mental Health Statistics (2024)</h2>
+            <div class="statistics">
+                <div class="statistic">
+                    <h3>1 in 4</h3>
+                    <p>People worldwide will experience mental or neurological disorders at some point in their lives.</p>
+                </div>
+                <div class="statistic">
+                    <h3>450 million</h3>
+                    <p>People currently suffer from such conditions, making mental disorders among the leading causes of ill health and disability worldwide.</p>
+                </div>
+                <div class="statistic">
+                    <h3>75%</h3>
+                    <p>Of people with mental disorders receive no treatment for their condition.</p>
+                </div>
+                <div class="statistic">
+                    <h3>10%</h3>
+                    <p>Of the global burden of disease is due to mental health conditions, with depression being the leading cause.</p>
+                </div>
+                <div class="statistic">
+                    <h3>1 suicide</h3>
+                    <p>Occurs every 40 seconds, with suicide being the second leading cause of death among 15-29-year-olds.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Philippine Mental Health Statistics Section -->
+        <div class="section">
+            <h2>Philippine Mental Health Statistics (2024)</h2>
+            <div class="statistics">
+                <div class="statistic">
+                    <h3>3.3 million</h3>
+                    <p>Filipinos suffer from depressive disorders, representing about 3.3% of the population.</p>
+                </div>
+                <div class="statistic">
+                    <h3>1 in 5</h3>
+                    <p>Filipinos suffer from mental health problems, indicating a significant need for mental health services in the country.</p>
+                </div>
+                <div class="statistic">
+                    <h3>2nd leading</h3>
+                    <p>Cause of death among Filipinos aged 15-29 is suicide, highlighting the urgent need for mental health interventions.</p>
+                </div>
+                <div class="statistic">
+                    <h3>1 mental health specialist</h3>
+                    <p>Per 250,000 Filipinos, showing the severe lack of mental health professionals in the country.</p>
+                </div>
+                <div class="statistic">
+                    <h3>8.3%</h3>
+                    <p>Of the population suffers from anxiety disorders, making it one of the most common mental health issues in the Philippines.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Access Your Report and Request an Assessment Section -->
+        <div class="section form-grid" id="assessment">
+            <!-- Access Your Report Section -->
+            <div class="column">
+                <h2>Access Your Report</h2>
+                <form id="profileCodeForm" onsubmit="redirectToReport(event)" novalidate>
+                    <div class="form-group">
+                        <label for="profileCode">Enter your Profile Code:</label>
+                        <input type="text" id="profileCode" name="profileCode" aria-label="Enter your Profile Code" required>
+                        <div class="help-text">Format: PC12345</div>
+                    </div>
+                    <div id="message" role="alert" aria-live="polite"></div>
+                    <div id="loading">Loading your report, please wait...</div>
+                    <div class="form-group">
+                        <input type="submit" value="View Report">
+                    </div>
+                    <div id="success-message" aria-live="polite">
+                        The folder has been located. Redirecting you now...
+                    </div>
+                </form>
+                <p>This section is used for virtual communication. Please use the Contact Us button at the bottom of this page or the Request an Assessment button link to send an email to access the Virtual Communication Dashboard.</p>
+                <div class="form-group">
+                    <button onclick="window.location.href='https://doxy.me/drclnt'" style="background-color: #ff7043; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 1.2rem; font-weight: bold; text-transform: uppercase; width: 100%; transition: background-color 0.3s ease;">Virtual Communication Dashboard</button>
+                </div>
+            </div>
+
+            <!-- Request an Assessment Section -->
+            <div class="column">
+                <h2>Request an Assessment</h2>
+                <form id="assessmentForm" action="https://formspree.io/f/xnnazkbr" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name" aria-label="Full Name" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address" aria-label="Email Address" autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" required placeholder="Enter your age" min="16" aria-label="Age">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required aria-label="Gender">
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer_not_to_say">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Why do you need an assessment?</label>
+                        <textarea id="reason" name="reason" required placeholder="Briefly describe your reason for seeking an assessment" aria-label="Reason for Assessment"></textarea>
+                    </div>
+                    <div id="formMessage" role="alert" aria-live="polite"></div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit">
+                        <span class="fee-note">.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="section" id="quiz">
+            <h2>Mental Health Assessment Quiz</h2>
+            <div class="quiz-container">
+                <form id="mentalHealthQuiz">
+                    <!-- Questions -->
+                    <div class="question">
+                        <label for="q1">1. I found it hard to wind down.</label>
+                        <select id="q1" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q2">2. I was aware of the dryness of my mouth.</label>
+                        <select id="q2" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q3">3. I couldn't seem to experience any positive feelings at all.</label>
+                        <select id="q3" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q4">4. I experienced breathing difficulty (e.g., excessively rapid breathing, breathlessness without physical exertion).</label>
+                        <select id="q4" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q5">5. I found it difficult to work up the initiative to do things.</label>
+                        <select id="q5" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q6">6. I tended to over-react to situations.</label>
+                        <select id="q6" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q7">7. I experienced trembling (e.g., in the hands).</label>
+                        <select id="q7" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q8">8. I felt that I was using a lot of nervous energy.</label>
+                        <select id="q8" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q9">9. I was worried about situations where I might panic and make a fool of myself.</label>
+                        <select id="q9" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree, or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q10">10. I felt that I had nothing to look forward to.</label>
+                        <select id="q10" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q11">11. I found myself getting agitated.</label>
+                        <select id="q11" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q12">12. I found it difficult to relax.</label>
+                        <select id="q12" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q13">13. I felt downhearted and blue.</label>
+                        <select id="q13" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q14">14. I was intolerant of anything that kept me from getting on with what I was doing.</label>
+                        <select id="q14" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q15">15. I felt I was close to panic.</label>
+                        <select id="q15" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q16">16. I was unable to become enthusiastic about anything.</label>
+                        <select id="q16" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q17">17. I felt I wasn't worth much as a person.</label>
+                        <select id="q17" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q18">18. I felt that I was rather touchy.</label>
+                        <select id="q18" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q19">19. I was aware of the action of my heart in the absence of physical exertion (e.g., sense of heart rate increase, heart missing a beat).</label>
+                        <select id="q19" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q20">20. I felt scared without any good reason.</label>
+                        <select id="q20" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <div class="question">
+                        <label for="q21">21. I felt that life was meaningless.</label>
+                        <select id="q21" required>
+                            <option value="0">Did not apply to me at all</option>
+                            <option value="1">Applied to me to some degree, or some of the time</option>
+                            <option value="2">Applied to me to a considerable degree or a good part of the time</option>
+                            <option value="3">Applied to me very much, or most of the time</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submitQuiz">Submit Quiz</button>
+                </form>
+
+                <div id="result">
+                    <h3>Your Assessment Results:</h3>
+                    <p id="restlessnessScore">Restlessness: </p>
+                    <p id="hopelessnessScore">Hopelessness: </p>
+                    <p id="fatigueScore">Fatigue: </p>
+
+                    <div class="score-description" id="scoreDescription"></div>
+                </div>
+
+                <div class="note">
+                    <p>This assessment is for self-test purposes only and conveys no professional explanation. Please consult a medical professional if needed.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="section" id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="content-grid">
+                <div class="column">
+                    <h3>What is Resilience?</h3>
+                    <p>Resilience is a platform that provides personalized mental health assessments to help you better understand and manage your mental health.</p>
+                </div>
+                <div class="column">
+                    <h3>How does the assessment process work?</h3>
+                    <p>You can request an assessment through our online form. Our team will review your request and guide you through the process, either through a virtual meeting or a paper-based assessment.</p>
+                </div>
+                <div class="column">
+                    <h3>Is my information secure?</h3>
+                    <p>Yes, your privacy is our top priority. All your data is confidential and not shared with third parties without your consent.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div class="section" id="blog">
+            <h2>Latest Articles</h2>
+            <div class="content-grid">
+                <div class="column">
+                    <h3>5 Ways to Build Resilience</h3>
+                    <p>Discover practical tips to strengthen your mental resilience and improve your well-being.</p>
+                    <a href="#resilience-article">Read more</a>
+                </div>
+                <div class="column">
+                    <h3>The Importance of Mental Health Assessments</h3>
+                    <p>Learn why regular mental health assessments are crucial for overall health.</p>
+                    <a href="#assessment-article">Read more</a>
+                </div>
+                <div class="column">
+                    <h3>Understanding Anxiety: Symptoms and Solutions</h3>
+                    <p>Get insights into the causes of anxiety and effective ways to manage it.</p>
+                    <a href="#anxiety-article">Read more</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Articles -->
+        <div class="section" id="resilience-article">
+            <h2>5 Ways to Build Resilience</h2>
+            <p><strong>Introduction:</strong> Resilience is the ability to bounce back from challenges and adapt to adversity. It's essential for maintaining mental well-being, especially in today's fast-paced world. Here are five practical tips to help you build resilience and improve your mental health.</p>
+            <p><strong>1. Develop a Strong Support System:</strong> Surround yourself with positive, supportive people who can provide encouragement and advice. Building strong relationships with friends, family, or community groups gives you a network to rely on during tough times.</p>
+            <p><strong>2. Focus on What You Can Control:</strong> It’s easy to get overwhelmed by situations beyond your control. Instead, focus on the aspects of your life that you can influence. This shift in perspective can help you feel more empowered and less stressed.</p>
+            <p><strong>3. Practice Mindfulness:</strong> Mindfulness involves staying present and fully engaging in the current moment. Practicing mindfulness can reduce stress, increase self-awareness, and enhance your ability to cope with difficult situations.</p>
+            <p><strong>4. Maintain a Healthy Lifestyle:</strong> A healthy body supports a resilient mind. Regular exercise, a balanced diet, and sufficient sleep contribute to better mental health and increased resilience. Make time for activities that nourish both your body and mind.</p>
+            <p><strong>5. Set Realistic Goals:</strong> Having clear, achievable goals gives you a sense of purpose and direction. Start small and gradually work towards larger objectives. This approach helps build confidence and keeps you motivated through challenging times.</p>
+            <p><strong>Conclusion:</strong> Building resilience takes time and practice, but it’s a vital skill for overcoming challenges and maintaining mental well-being. By implementing these tips, you can strengthen your resilience and navigate life’s difficulties more easily.</p>
+        </div>
+
+        <div class="section" id="assessment-article">
+            <h2>The Importance of Mental Health Assessments</h2>
+            <p><strong>Introduction:</strong> Mental health assessments are a critical tool in understanding and managing your mental well-being. Regular assessments can provide valuable insights into your mental state, helping you take proactive steps to maintain your health.</p>
+            <p><strong>1. Early Detection of Mental Health Issues:</strong> Early detection is one of the main benefits of regular mental health assessments. Identifying potential issues early allows for timely intervention, preventing conditions from worsening and improving outcomes.</p>
+            <p><strong>2. Personalised Care:</strong> Mental health assessments provide a personalised view of your mental state, considering your unique experiences, symptoms, and circumstances. This tailored approach ensures you receive care and treatment tailored to your needs.</p>
+            <p><strong>3. Monitoring Progress:</strong> For individuals already receiving treatment or therapy, regular assessments are essential for monitoring progress. They help track improvements, identify setbacks, and adjust treatment plans to ensure the best possible outcomes.</p>
+            <p><strong>4. Reducing Stigma:</strong> Engaging in regular mental health assessments can help normalise the conversation around mental health, reducing stigma and encouraging more people to seek help. It reinforces the idea that mental health is just as important as physical health.</p>
+            <p><strong>5. Empowering Self-Awareness:</strong> Assessments empower individuals to understand their mental health better. This self-awareness is crucial for recognising when you might need extra support and taking steps to maintain your mental well-being.</p>
+            <p><strong>Conclusion:</strong> Mental health assessments are a proactive way to take charge of your mental well-being. Whether you're dealing with a mental health issue or want to maintain your mental fitness, regular assessments can provide the insights you need to stay healthy.</p>
+        </div>
+
+        <div class="section" id="anxiety-article">
+            <h2>Understanding Anxiety: Symptoms and Solutions</h2>
+            <p><strong>Introduction:</strong> Anxiety is a common mental health issue that affects millions of people worldwide. Understanding its symptoms and solutions can help you manage anxiety effectively and improve your overall quality of life.</p>
+            <p><strong>1. Recognising the Symptoms of Anxiety:</strong> Anxiety can manifest in various ways, both physically and mentally. Common symptoms include excessive worrying, restlessness, fatigue, difficulty concentrating, and physical symptoms like headaches or an upset stomach. Understanding these signs is the first step in addressing anxiety.</p>
+            <p><strong>2. Identifying Triggers:</strong> Anxiety is often triggered by specific situations, events, or thoughts. Identifying your triggers can help you anticipate and manage anxiety before it escalates. Keep a journal of when you feel anxious, and note any emerging patterns.</p>
+            <p><strong>3. Cognitive Behavioural Therapy (CBT):</strong> CBT is a widely recognised therapy for treating anxiety. It involves identifying and challenging negative thought patterns that contribute to anxiety. You can learn to reframe your thoughts and develop healthier coping mechanisms through CBT.</p>
+            <p><strong>4. Lifestyle Changes to Reduce Anxiety:</strong> Lifestyle changes can have a significant impact on managing anxiety. Regular exercise, a healthy diet, sufficient sleep, and reducing caffeine and alcohol intake are all effective strategies. Mindfulness and relaxation techniques, such as deep breathing or meditation, can also help calm the mind.</p>
+            <p><strong>5. Seeking Professional Help:</strong> If anxiety interferes with your daily life, seeking professional help is essential. A mental health professional can provide you with tools and strategies tailored to your specific needs, whether through therapy, medication, or a combination of both.</p>
+            <p><strong>Conclusion:</strong> Understanding and managing anxiety is crucial for maintaining your mental health. By recognising the symptoms, identifying triggers, and implementing effective strategies, you can take control of your anxiety and lead a more balanced, fulfilling life.</p>
+        </div>
+
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2025 Mental Health Support Portal of the College of Nursing. All rights reserved.</p>
+        <p>
+            <a href="#" id="contactUsLink">Contact Us</a> |
+            <span class="tooltip">Privacy Policy
+                <span class="tooltiptext">We value your privacy. Your information is kept secure and confidential. We do not share your data with third parties without your consent.</span>
+            </span>
+        </p>
+    </footer>
+
+    <button id="backToTopBtn" onclick="scrollToTop()">↑</button>
+
+    <script>
+        document.getElementById("contactUsLink").addEventListener("click", handleContactUs);
+
+        function handleContactUs(event) {
+            event.preventDefault();
+            var email = "assessmentandprofiling@outlook.com";
+
+            if (isMobileDevice()) {
+                window.location.href = `mailto:${email}`;
+            } else {
+                copyEmailToClipboard(email);
+            }
+        }
+
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        function copyEmailToClipboard(email) {
+            var tempTextArea = document.createElement("textarea");
+            tempTextArea.value = email;
+            document.body.appendChild(tempTextArea);
+
+            tempTextArea.select();
+            tempTextArea.setSelectionRange(0, 99999);
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    alert("The email address has been copied to your clipboard. Please paste it into your email client.");
+                } else {
+                    alert("Failed to copy the email address. Please manually copy it.");
+                }
+            } catch (err) {
+                alert("Failed to copy the email address. Please manually copy it.");
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        document.getElementById("profileCode").addEventListener("input", function () {
+            var profileCode = this.value.trim();
+            var messageDiv = document.getElementById("message");
+
+            if (!/PC\d{5}/.test(profileCode)) {
+                messageDiv.textContent = "Profile Code should be in the format 'PC' followed by 5 digits.";
+                messageDiv.style.color = "orange";
+            } else {
+                messageDiv.textContent = "";
+            }
+        });
+
+        function redirectToReport(event) {
+            event.preventDefault();
+            var profileCode = document.getElementById("profileCode").value.trim();
+            var messageDiv = document.getElementById("message");
+            var successMessageDiv = document.getElementById("success-message");
+            var loadingDiv = document.getElementById("loading");
+
+            messageDiv.textContent = "";
+            loadingDiv.style.display = "block";
+            successMessageDiv.style.display = "none";
+
+            setTimeout(function () {
+                switch (profileCode) {
+                    case "PC00013":"https://1drv.ms/b/c/a0144202f3cc6267/EQapOrzzwrNPn1hKBOwJD8UBXSUaVDfMkbDPzGS_5aPBKA?e=f0dzFz"
+                    case "PC00023":
+                    case "PC00105":
+                    case "PC00185":
+                    case "PC01001":
+                    case "PC11230":
+                    case "PC11822":
+                    case "PC12593":
+                    case "PC14638":
+                    case "PC15220":
+                    case "PC18394":
+                    case "PC18472":
+                    case "PC19364":
+                    case "PC24562":
+                    case "PC33221":
+                    case "PC34511":
+                    case "PC55500":
+                    case "PC66520":
+                    case "PC99112":
+                    case "PC00SY1":
+                    case "PC00SY2":
+                    case "PC99113":
+                    case "PC99114":
+                    case "PC99115":
+                    case "PC99121":
+                    case "PC99125":
+                        successMessageDiv.style.display = "block";
+                        loadingDiv.style.display = "none";
+                        setTimeout(function () {
+                            window.location.href = getRedirectUrl(profileCode);
+                        }, 2000);
+                        break;
+                    default:
+                        messageDiv.textContent = "Profile Code not recognised. Please try again.";
+                        messageDiv.style.color = "red";
+                        loadingDiv.style.display = "none";
+                        break;
+                }
+            }, 1000);
+        }
+
+        function getRedirectUrl(profileCode) {
+            var urls = {
+                "PC00013": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAsAQAAAAABHmIa6xZwOmGTPeIlgCxbpw?e=UWy0Vq",
+                "PC00023": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAvAQAAAAABVv9Q08Rh6eoBVYD7wdw9RQ?e=aI6H7H",
+                "PC00105": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAwAQAAAAABmuhr8CdzGDxwwCXk92hYvw?e=8F0sdj",
+                "PC00185": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAuAQAAAAABJigKNs1bYeawly1EPCj4Pw?e=tcfi3P",
+                "PC01001": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAtAQAAAAAB53EU9P-FMa7Q0rMKRgMhCA?e=jLeoWq",
+                "PC11230": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAlAQAAAAABbZxivftjo5jS_IgxO9UqIA?e=LlMnjO",
+                "PC11822": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAmAQAAAAAByS2tAbRxiTedU7kLcqTtQA?e=SgBtjE",
+                "PC12593": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAnAQAAAAABe1VwPbml13pF8w70TVQM-g?e=Brgo61",
+                "PC14638": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAoAQAAAAABtjNy20Qh9agKp0Z-QiBuuA?e=RRYdQg",
+                "PC15220": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKApAQAAAAABxfWakM8MSHk_O2cOy_BJdA?e=E2QaQA",
+                "PC18394": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKArAQAAAAAB1VyfvidpT5SYHpccz5iqFg?e=J0ABB2",
+                "PC18472": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKAzAQAAAAABlRiHe1iT6Nt8QRHo03bgoA?e=SkZ2py",
+                "PC19364": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA0AQAAAAABA4kTqLqOyESY2pCDvT7i6g?e=HZ4coG",
+                "PC24562": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA1AQAAAAABe9mjX1B3a234w55MW4GC1Q?e=wPD9Vc",
+                "PC33221": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA2AQAAAAABCG0ZqZdttSNoCwTFzT_dmw?e=2eFp7l",
+                "PC34511": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA3AQAAAAABQLqNjinbCC51nIPuq3PIWQ?e=cCj7gL",
+                "PC55500": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA4AQAAAAABSIRTSf2fuSHG7aC_gd1jdQ?e=th80l3",
+                "PC66520": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA5AQAAAAABHHGb3hp_BNcS03811BxXhg?e=eM3gWg",
+                "PC99112": "https://1drv.ms/f/c/a0144202f3cc6267/EmdizPMCQhQggKA6AQAAAAABm2FZbzbOSdFjPyIpHvzi2Q?e=ydGtmf",
+                "PC00SY1": "https://1drv.ms/f/c/a0144202f3cc6267/EgkhjBIcIRJDj5teBqnPYMwBfwSYiwaYxt5ddixmaepJQg?e=BUAO2a",
+                "PC00SY2": "https://1drv.ms/f/c/a0144202f3cc6267/Ev6ftEBMiTlJngsq1bLR9GoBdcLoJrqnscGxfE_xCxPUKg?e=Bd8WcO",
+                "PC99113": "https://1drv.ms/f/c/a0144202f3cc6267/EgPzesnyhFBCq1RX959lV4YBNRaqFEHrzELEXHFJuMpPIQ?e=Dj9K98",
+                "PC99114": "https://1drv.ms/f/c/a0144202f3cc6267/EurCsKgka_ROgOpuagP7B48Bt77VqZDt2Gehrd02dnJxaw?e=vfd00o",
+                "PC99115": "https://1drv.ms/f/c/a0144202f3cc6267/ElqXqCb43U9FpedD26Uwrk4B2uNgTgWCPOLpml_VQ5W_IQ?e=fjDEAb",
+                "PC99121": "https://1drv.ms/f/c/a0144202f3cc6267/EkpiOfZN_nRPhL7c2NRjirUB0EKhGr2L8AmKzl974t-v1w?e=4x8QfO",
+                "PC99125": "https://1drv.ms/f/c/a0144202f3cc6267/EnvGa5egYYFEjn-DpImbZQUBzHfnqdCsjy3e8R4JvvTcyw?e=m1pdKX",
+                "PC1": "https://1drv.ms/f/c/a0144202f3cc6267/EgypV1KV6ABHmzHfvy5aRy4Bs1c63ka5YDyY7tbyzlD4WQ?e=JEQYwO",
+                "PC2": "https://1drv.ms/f/c/a0144202f3cc6267/EpyIoZLbNIRBhXiTcCp3XusBKbQgtKQhKmpGkEZBj-Sf5w?e=xmRgkZ",
+                "PC3": "https://1drv.ms/f/c/a0144202f3cc6267/EqVvm10bFW1Fuqq-6HwgAC8B1foJfZMPW-BBfP8M-8cCRw?e=Eimm99",
+                "PC4": "https://1drv.ms/f/c/a0144202f3cc6267/EvNNn4e7FCRBoMgq7SWbHUcBtpFKhRNjqR5Rv-TqUzbNlQ?e=4Fwzhg",
+                "PC5": "https://1drv.ms/f/c/a0144202f3cc6267/EqaVJ5vi4glCr33LMf8txM8B__QgK6wv5A94_aHMwGtLoQ?e=yQHiVh",
+                "PC6": "https://1drv.ms/f/c/a0144202f3cc6267/ElAesY8Lz39BuQYg6gWdDR8BtF1AYB3TcBJsCDMcGqjVhQ?e=Jvk8Ip"
+                
+            };
+            return urls[profileCode];
+        }
+
+        /* Back to Top Button */
+        window.onscroll = function () {
+            const backToTopBtn = document.getElementById("backToTopBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        document.getElementById("mentalHealthQuiz").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var restlessnessScore = calculateScore(["q1", "q6", "q8", "q11", "q14", "q17"]);
+            var hopelessnessScore = calculateScore(["q3", "q5", "q10", "q13", "q16", "q21"]);
+            var fatigueScore = calculateScore(["q2", "q4", "q7", "q9", "q12", "q15", "q18", "q19", "q20"]);
+
+            document.getElementById("restlessnessScore").textContent = "Restlessness: " + restlessnessScore;
+            document.getElementById("hopelessnessScore").textContent = "Hopelessness: " + hopelessnessScore;
+            document.getElementById("fatigueScore").textContent = "Fatigue: " + fatigueScore;
+
+            var description = generateScoreDescription(restlessnessScore, hopelessnessScore, fatigueScore);
+            document.getElementById("scoreDescription").textContent = description;
+
+            document.getElementById("result").style.display = "block";
+        });
+
+        function calculateScore(questionIds) {
+            return questionIds.reduce(function (total, questionId) {
+                return total + parseInt(document.getElementById(questionId).value, 10);
+            }, 0);
+        }
+
+        function generateScoreDescription(restlessness, hopelessness, fatigue) {
+            return "Based on your scores, you may be experiencing moderate restlessness, hopelessness, and fatigue. It's important to consider these results as an indication to take a closer look at your mental health and well-being. If you have concerns, please consult a medical professional.";
+        }
+    </script>
+</body>
+
+</html>
